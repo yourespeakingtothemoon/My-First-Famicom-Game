@@ -31,12 +31,11 @@ RESET:
 	txs 		  ;init stack pointer to bottom of stack
 	
 	lda #0            ;load a as 0
-	ldx #$FF	  ;X=$FF
+	inx	          ;X++ wrap to 0
 MemLoop:
 	sta $0,x          ;Store value of A into $0+X
 	dex	          ;x--
 	bne MemLoop	  ;if X is not zero we go back to loop
-
 NMI:
 	rti
 IRQ:
