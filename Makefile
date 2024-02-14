@@ -1,0 +1,2 @@
+PushToRemote:
+	git push 

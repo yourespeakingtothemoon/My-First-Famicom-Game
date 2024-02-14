@@ -4,7 +4,6 @@
 
 
 .segment "HEADER"
-.org $7FF0
 .byte $4E,$45,$53,$1A     ; 4 bytes with characters N E S and \n
 .byte $02 	          ; how many 16KB are we using PRG ROM?
 .byte $01	          ; how many 8KB of CHR-ROM we are using?
@@ -20,7 +19,6 @@
 ;;;;;;;;;;;;;;;;;PRG-ROM Code loc $8000;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 .segment "CODE"
-.org $8000
 ;TODO: Add code for PRG-ROM
 
 
@@ -30,12 +28,22 @@ RESET:
 	ldx #$FF
 	txs 		  ;init stack pointer to bottom of stack
 	
-	lda #0            ;load a as 0
 	inx	          ;X++ wrap to 0
-MemLoop:
-	sta $0,x          ;Store value of A into $0+X
-	dex	          ;x--
-	bne MemLoop	  ;if X is not zero we go back to loop
+	txa
+ClearRAM:
+	sta $0000,x	;Zero RAM from $0000 to $00FF
+	sta $0100,x
+	sta $0200,x
+	sta $0300,x
+	sta $0400,x
+	sta $0500,x
+	sta $0600,x
+	sta $0700,x
+	inx
+	bne ClearRAM     ;if X is not zero we go back to loop
+LoopForever:
+	jmp LoopForever ;forces while(true)
+
 NMI:
 	rti
 IRQ:
@@ -43,7 +51,6 @@ IRQ:
 
 
 .segment "VECTORS"
-.org $FFFA
 ;------Interrupt Handlers---------
 ;    address for NMI handle
 .word NMI
