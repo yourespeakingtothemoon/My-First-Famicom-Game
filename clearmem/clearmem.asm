@@ -1,54 +1,130 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;iNES Header;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+.include "aliases.inc"
+.include "inesheader.inc"
+.include "reset.inc"
+.include "titlescreentest.gfx"
+.include "utils.inc"
 
+.segment "ZEROPAGE"
 
-.segment "HEADER"
-.byte $4E,$45,$53,$1A     ; 4 bytes with characters N E S and \n
-.byte $02 	          ; how many 16KB are we using PRG ROM?
-.byte $01	          ; how many 8KB of CHR-ROM we are using?
-.byte %00000000	          ; Horiz mirroring, no bat, no mapper
-.byte %00000000           ; mapper 0, playchoice, NES 2.0
-.byte $00	          ; no PRG-RAM - supplemental on cart
-.byte $00                 ; 0-NTSC 1-PAL
-.byte $00                 ; PRG RAM presence
-.byte $00,$00,$00,$00,$00 ; header padding bytes
+Frame: .res 1 	;Reserve for frame
+Clock60: .res 1 
+BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo first hi last
 
 .segment "CODE"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;PRG-ROM Code loc $8000;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-.segment "CODE"
-;TODO: Add code for PRG-ROM
+.proc LoadPalette
+	ldy #0 ;;;;;;;;;;
+LoopPalette:
+	lda PaletteData,y
+	sta PPU_DATA
+	iny            
+	cpy #32          
+	bne LoopPalette
+	rts
+.endproc
 
+.proc LoadBackground
+	ldy #0 ;;;;;;;;;;
+LoopBackground:
+	lda (BkgPtr),y
+	sta PPU_DATA
+	iny            
+	cpy #255          
+	bne LoopBackground
+	rts
+.endproc
 
+.proc LoadAttributes
+	ldy #0 ;;;;;;;;;;
+LoopAttrib:
+	lda AttributeData,y
+	sta PPU_DATA
+	iny            
+	cpy #16          
+	bne LoopAttrib
+	rts
+.endproc
+ 
+;;;;;;;;;;;;;;;;;;;;;;
+;;its resettin time
+;;;;;;;;;;;;;;;;;;;;;;
 RESET:
-	sei		  ; Disable all IRQ interrupts
-	cld		  ; Clear decimal mode flag (doesnt exist on Famicom processor)
-	ldx #$FF
-	txs 		  ;init stack pointer to bottom of stack
-	
-	inx	          ;X++ wrap to 0
-	txa
-ClearRAM:
-	sta $0000,x	;Zero RAM from $0000 to $00FF
-	sta $0100,x
-	sta $0200,x
-	sta $0300,x
-	sta $0400,x
-	sta $0500,x
-	sta $0600,x
-	sta $0700,x
+	INIT_NES
+	lda #0
+	sta Frame
+	sta Clock60
+Main:
+	PPU_SETADDR $3F00 
+	jsr LoadPalette	
+
+	lda #<BackgroundData
+	sta BkgPtr
+	lda #>BackgroundData
+	sta BkgPtr+1
+
+	PPU_SETADDR $2000
+	ldx #$00
+	ldy #$00
+
+OuterLoop:
+InnerLoop:
+	lda(BkgPtr),y
+	sta PPU_DATA
+	iny
+	cpy #0
+	beq IncreaseHiByte
+	jmp InnerLoop
+IncreaseHiByte:
+	inc BkgPtr+1
 	inx
-	bne ClearRAM     ;if X is not zero we go back to loop
+	cpx #4
+	bne OuterLoop
+	
+
+ ; set ppu mask to activate render
+EnablePPURendering:
+	lda #%10000000
+	sta PPU_CTRL
+	lda #0
+	sta PPU_SCROLL ;x scroll
+	sta PPU_SCROLL ;y scroll
+	lda #%00011110
+	sta PPU_MASK	
+
 LoopForever:
-	jmp LoopForever ;forces while(true)
+	jmp LoopForever 
 
 NMI:
+	inc Frame
+	lda Frame
+	cmp #60
+	bne :+
+	inc Clock60
+	lda #0
+	sta Frame
+:
 	rti
 IRQ:
 	rti
+PaletteData:
+;background palette
+;.byte $0F,$2A,$0C,$3A, $0F,$2A,$0C,$3A, $0F,$2A,$0C,$3A, $0F,$2A,$0C,$3A
+;sprite Palette
+;.byte $0F,$10,$00,$26, $0F,$10,$00,$26, $0F,$10,$00,$26, $0F,$10,$00,$26
 
+	TitleTestPalette
+	TitleTestPalette
+
+BackgroundData:
+
+	TitleScreen
+
+;;;;CHR-ROM DATA;;;;;;;
+
+.segment "CHARS"
+.incbin "titlescreen.chr"
 
 .segment "VECTORS"
 ;------Interrupt Handlers---------
