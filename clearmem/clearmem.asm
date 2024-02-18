@@ -3,7 +3,7 @@
 .include "reset.inc"
 .include "titlescreentest.gfx"
 .include "utils.inc"
-
+.include "core/procedures.inc"
 .segment "ZEROPAGE"
 
 Frame: .res 1 	;Reserve for frame
@@ -14,39 +14,7 @@ BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo firs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;PRG-ROM Code loc $8000;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-.proc LoadPalette
-	ldy #0 ;;;;;;;;;;
-LoopPalette:
-	lda PaletteData,y
-	sta PPU_DATA
-	iny            
-	cpy #32          
-	bne LoopPalette
-	rts
-.endproc
-
-.proc LoadBackground
-	ldy #0 ;;;;;;;;;;
-LoopBackground:
-	lda (BkgPtr),y
-	sta PPU_DATA
-	iny            
-	cpy #255          
-	bne LoopBackground
-	rts
-.endproc
-
-.proc LoadAttributes
-	ldy #0 ;;;;;;;;;;
-LoopAttrib:
-	lda AttributeData,y
-	sta PPU_DATA
-	iny            
-	cpy #16          
-	bne LoopAttrib
-	rts
-.endproc
- 
+graphicsProcs
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;its resettin time
 ;;;;;;;;;;;;;;;;;;;;;;
