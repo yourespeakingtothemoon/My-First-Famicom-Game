@@ -12,12 +12,13 @@ BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo firs
 
 .segment "CODE"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;PRG-ROM Code loc $8000;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;PRG-ROM Code location $8000;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 graphicsProcs
-;;;;;;;;;;;;;;;;;;;;;;
-;;its resettin time
-;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;  RESET code, runs every time the NES console is reset  ;;;;;
+;  game initalization code should all be contained here ;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RESET:
 	INIT_NES
 	lda #0
