@@ -81,3 +81,12 @@ AttributeData:
 .byte $2c,$38,$28,$0f
 
 .endmacro
+
+.macro CurelomStill
+;		  y | tile# |   attribute |  x
+.byte  	$10,	$02,	%00000000,	$10
+.byte	$10,	$01,	%00000000,	$18
+.byte	$18,	$07,	%00000000,	$10
+.byte	$18,	$08,	%00000000,	$18
+
+.endmacro

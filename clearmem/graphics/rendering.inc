@@ -33,5 +33,15 @@ LoopAttrib:
 	rts
 .endproc
 
+.proc LoadSprites
+	ldx #0 ;;;;;;;;;;
+LoopSprite:
+	lda SpriteData,x
+	sta $0200,x
+	inx
+	cpx #16
+	bne LoopSprite
+	rts
+.endproc
 
 .endmacro

@@ -66,6 +66,10 @@ LoopForever:
 
 NMI:
 	inc Frame
+
+	lda #$02
+	sta $4014
+
 	lda Frame
 	cmp #60
 	bne :+
@@ -84,9 +88,8 @@ PaletteData:
 
 	PlayPalette
 	PlayPalette
-
 	BetaScreen
-
+	CurelomStill
 ;;;;CHR-ROM DATA;;;;;;;
 
 .segment "CHARS"
