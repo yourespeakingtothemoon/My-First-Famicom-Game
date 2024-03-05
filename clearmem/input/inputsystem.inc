@@ -2,7 +2,7 @@
 
 .macro buttonProcs
 
-.proc ReadControllers
+.proc ReadButtons
     lda #1
     sta Buttons ;shift all to left and move carry to rightmost bit
 
