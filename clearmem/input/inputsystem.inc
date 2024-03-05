@@ -25,13 +25,13 @@ LoopButtons:
 .macro buttonChecks
 CheckRight:
     lda Buttons
-    and #BUTTON_RIGHT
+    and #RIGHT_BUTTON
     beq CheckLeft
 ;;controller do
         inc XPos
 CheckLeft:
     lda Buttons
-    and #BUTTON_LEFT
+    and #LEFT_BUTTON
     beq CheckUp
 ;;controller do
         dec XPos
