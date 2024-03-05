@@ -1,9 +1,9 @@
 .include "aliases.inc"
-.include "inesheader.inc"
-.include "reset.inc"
-.include "titlescreentest.gfx"
-.include "utils.inc"
-.include "core/procedures.inc"
+.include "core/inesheader.inc"
+.include "core/reset.inc"
+.include "graphics/zaraplay.gfx"
+.include "core/utils.inc"
+.include "graphics/rendering.inc"
 .segment "ZEROPAGE"
 
 Frame: .res 1 	;Reserve for frame
@@ -36,7 +36,6 @@ Main:
 	PPU_SETADDR $2000
 	ldx #$00
 	ldy #$00
-
 OuterLoop:
 InnerLoop:
 	lda(BkgPtr),y
@@ -54,7 +53,7 @@ IncreaseHiByte:
 
  ; set ppu mask to activate render
 EnablePPURendering:
-	lda #%10000000
+	lda #%10010000
 	sta PPU_CTRL
 	lda #0
 	sta PPU_SCROLL ;x scroll
@@ -83,17 +82,18 @@ PaletteData:
 ;sprite Palette
 ;.byte $0F,$10,$00,$26, $0F,$10,$00,$26, $0F,$10,$00,$26, $0F,$10,$00,$26
 
-	TitleTestPalette
-	TitleTestPalette
+	PlayPalette
+	PlayPalette
+	
 
 BackgroundData:
 
-	TitleScreen
+	BetaScreen
 
 ;;;;CHR-ROM DATA;;;;;;;
 
 .segment "CHARS"
-.incbin "titlescreen.chr"
+.incbin "graphics/curelomplay.chr"
 
 .segment "VECTORS"
 ;------Interrupt Handlers---------
