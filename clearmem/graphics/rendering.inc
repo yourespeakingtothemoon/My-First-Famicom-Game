@@ -36,16 +36,7 @@ IncreaseHiByte:
 	
 .endproc
 
-.proc LoadAttributes
-	ldy #0 ;;;;;;;;;;
-LoopAttrib:
-	lda AttributeData,y
-	sta PPU_DATA
-	iny            
-	cpy #16          
-	bne LoopAttrib
-	rts
-.endproc
+
 
 .proc LoadSprites
 	ldx #0 ;;;;;;;;;;

@@ -25,51 +25,68 @@ LoopButtons:
 .macro buttonChecks
 CheckRight:
     lda Buttons
-    and #%00000001
+    and #BUTTON_RIGHT
     beq CheckLeft
 ;;controller do
-    inc XPos
+        inc XPos
 CheckLeft:
     lda Buttons
-    and #%00000010
+    and #BUTTON_LEFT
     beq CheckUp
 ;;controller do
-    dec XPos
+        dec XPos
 CheckUp:
     lda Buttons
-    and #%00000100
+    and #UP_BUTTON
     beq CheckDown
 ;;controller do
-    inc YPos
+        inc YPos
 CheckDown:
     lda Buttons
-    and #%00001000
+    and #DOWN_BUTTON
     beq CheckA
 ;;controller do
-    dec YPos
+        dec YPos
 CheckA:
     lda Buttons
-    and #%00010000
+    and #A_BUTTON
     beq CheckB
 ;;controller do
 CheckB:
     lda Buttons
-    and #%00100000
+    and #B_BUTTON
     beq CheckSelect
 ;;controller do
 CheckSelect:
     lda Buttons
-    and #%01000000
+    and #SELECT_BUTTON
     beq CheckStart
 ;;controller do
 CheckStart:
     lda Buttons
-    and #%10000000
+    and #START_BUTTON
     beq :+
 
 :
 .endmacro
 
 .macro buttonActionProcs_MainGame
-   ; .proc 
+ .proc right_action
+.endproc
+ .proc left_action
+.endproc
+    .proc up_action
+.endproc
+    .proc down_action
+.endproc
+    .proc a_action
+.endproc
+    .proc b_action
+.endproc
+    .proc select_action
+.endproc
+    .proc start_action
+.endproc
+
+
 .endmacro

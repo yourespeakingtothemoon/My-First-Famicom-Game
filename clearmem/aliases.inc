@@ -11,4 +11,19 @@ PPU_SCROLL = $2005
 PPU_ADDR   = $2006
 PPU_DATA   = $2007
 
-;;                 other
+;;Controller
+
+JOYPAD1 = $4016
+JOYPAD2 = $4017
+
+;;;;;;;;;;;;;;;;;;;
+;;; BUTTONS
+
+A_BUTTON = $80
+B_BUTTON = $40
+SELECT_BUTTON = $20
+START_BUTTON = $10
+UP_BUTTON = $08
+DOWN_BUTTON = $04
+LEFT_BUTTON = $02
+RIGHT_BUTTON = $01  
