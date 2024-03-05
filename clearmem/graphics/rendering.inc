@@ -72,10 +72,10 @@ SpriteUpdate:
 
 	lda YPos
 	sta $0200
-	sta $0208
-	clc
-	adc #16
 	sta $0204
+	clc
+	adc #8
+	sta $020B
 	sta $020C
 
 

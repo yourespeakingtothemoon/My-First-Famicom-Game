@@ -8,12 +8,13 @@
 
 
 .segment "ZEROPAGE"
-Frame: .res 1 	;Reserve for frame
-Clock60: .res 1 
+Buttons: .res 1 ;Button reader
 XPos: .res 1
 YPos: .res 1
+Frame: .res 1 	;Reserve for frame
+Clock60: .res 1 
 BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo first hi last
-Buttons: .res 1 ;Button reader
+
 
 .segment "CODE"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
