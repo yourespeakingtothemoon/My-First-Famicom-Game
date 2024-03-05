@@ -59,3 +59,24 @@ LoopSprite:
 .endproc
 
 .endmacro
+
+.macro playerUpdate
+SpriteUpdate:
+	lda XPos
+	sta $0203
+	sta $020B
+	clc
+	adc #8
+	sta $0207
+	sta $020F
+
+	lda YPos
+	sta $0200
+	sta $0208
+	clc
+	adc #16
+	sta $0204
+	sta $020C
+
+
+.endmacro

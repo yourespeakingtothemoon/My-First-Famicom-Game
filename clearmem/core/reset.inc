@@ -25,7 +25,11 @@ vblankwait1:
 ClearRAM:
 	sta $0000,x	;Zero RAM from $0000 to $00FF
 	sta $0100,x
+
+	lda #$FF
 	sta $0200,x
+	
+	lda #0
 	sta $0300,x
 	sta $0400,x
 	sta $0500,x

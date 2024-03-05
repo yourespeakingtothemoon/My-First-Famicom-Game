@@ -4,17 +4,21 @@
 .include "graphics/zaraplay.gfx"
 .include "core/utils.inc"
 .include "graphics/rendering.inc"
-.segment "ZEROPAGE"
+.include "input/inputsystem.inc"
 
+
+.segment "ZEROPAGE"
 Frame: .res 1 	;Reserve for frame
 Clock60: .res 1 
 BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo first hi last
+Buttons: .res 1 ;Button reader
 
 .segment "CODE"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;PRG-ROM Code location $8000;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 graphicsProcs
+inputProcs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  RESET code, runs every time the NES console is reset  ;;;;;
 ;  game initalization code should all be contained here ;;;;;;
@@ -24,6 +28,14 @@ RESET:
 	lda #0
 	sta Frame
 	sta Clock60
+	ldx #0
+	lda SpriteData,x
+	sta YPos
+	inx
+	inx
+	inx
+	lda SpriteData,x
+	sta XPos
 Main:
 	PPU_SETADDR $3F00 
 jsr LoadPalette	
@@ -48,6 +60,9 @@ NMI:
 	lda #$02
 	sta $4014
 
+	jsr ReadButtons
+	buttonChecks
+	playerUpdate
 	lda Frame
 	cmp #60
 	bne :+
