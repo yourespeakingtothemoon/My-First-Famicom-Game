@@ -84,9 +84,6 @@ PaletteData:
 
 	PlayPalette
 	PlayPalette
-	
-
-BackgroundData:
 
 	BetaScreen
 
