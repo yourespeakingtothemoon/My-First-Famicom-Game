@@ -50,7 +50,7 @@ IncreaseHiByte:
 	cpx #4
 	bne OuterLoop
 	
-
+jsr LoadSprites
  ; set ppu mask to activate render
 EnablePPURendering:
 	lda #%10010000
