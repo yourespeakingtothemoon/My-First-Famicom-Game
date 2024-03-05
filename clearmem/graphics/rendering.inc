@@ -75,7 +75,7 @@ SpriteUpdate:
 	sta $0204
 	clc
 	adc #8
-	sta $020B
+	sta $0208
 	sta $020C
 
 
