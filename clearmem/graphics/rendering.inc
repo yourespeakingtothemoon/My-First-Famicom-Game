@@ -12,14 +12,28 @@ LoopPalette:
 .endproc
 
 .proc LoadBackground
-	ldy #0 ;;;;;;;;;;
-LoopBackground:
-	lda (BkgPtr),y
+	lda #<BackgroundData
+	sta BkgPtr
+	lda #>BackgroundData
+	sta BkgPtr+1
+
+	PPU_SETADDR $2000
+	ldx #$00
+	ldy #$00
+OuterLoop:
+InnerLoop:
+	lda(BkgPtr),y
 	sta PPU_DATA
-	iny            
-	cpy #255          
-	bne LoopBackground
-	rts
+	iny
+	cpy #0
+	beq IncreaseHiByte
+	jmp InnerLoop
+IncreaseHiByte:
+	inc BkgPtr+1
+	inx
+	cpx #4
+	bne OuterLoop
+	
 .endproc
 
 .proc LoadAttributes

@@ -26,30 +26,8 @@ RESET:
 	sta Clock60
 Main:
 	PPU_SETADDR $3F00 
-	jsr LoadPalette	
-
-	lda #<BackgroundData
-	sta BkgPtr
-	lda #>BackgroundData
-	sta BkgPtr+1
-
-	PPU_SETADDR $2000
-	ldx #$00
-	ldy #$00
-OuterLoop:
-InnerLoop:
-	lda(BkgPtr),y
-	sta PPU_DATA
-	iny
-	cpy #0
-	beq IncreaseHiByte
-	jmp InnerLoop
-IncreaseHiByte:
-	inc BkgPtr+1
-	inx
-	cpx #4
-	bne OuterLoop
-	
+jsr LoadPalette	
+jsr LoadBackground
 jsr LoadSprites
  ; set ppu mask to activate render
 EnablePPURendering:
