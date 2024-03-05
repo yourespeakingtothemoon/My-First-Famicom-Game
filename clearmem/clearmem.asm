@@ -9,11 +9,17 @@
 
 .segment "ZEROPAGE"
 Buttons: .res 1 ;Button reader
-XPos: .res 1
-YPos: .res 1
+XPos: .res 2
+YPos: .res 2
+;physics
+XVel: .res 1
+YVel: .res 1
+
 Frame: .res 1 	;Reserve for frame
 Clock60: .res 1 
 BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo first hi last
+
+
 
 
 .segment "CODE"
@@ -31,14 +37,18 @@ RESET:
 	lda #0
 	sta Frame
 	sta Clock60
+
+	lda #20
+	sta XVel
+
 	ldx #0
 	lda SpriteData,x
-	sta YPos
+	sta YPos+1
 	inx
 	inx
 	inx
 	lda SpriteData,x
-	sta XPos
+	sta XPos+1
 Main:
 	PPU_SETADDR $3F00 
 jsr LoadPalette	

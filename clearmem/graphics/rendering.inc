@@ -52,8 +52,17 @@ LoopSprite:
 .endmacro
 
 .macro playerUpdate
+UpdateSpritePosit:
+	lda XVel
+	clc
+	adc XPos
+	sta XPos
+	lda #0
+	adc XPos+1
+	sta XPos+1
+	
 SpriteUpdate:
-	lda XPos
+	lda XPos+1
 	sta $0203
 	sta $020B
 	clc
@@ -61,7 +70,7 @@ SpriteUpdate:
 	sta $0207
 	sta $020F
 
-	lda YPos
+	lda YPos+1
 	sta $0200
 	sta $0204
 	clc

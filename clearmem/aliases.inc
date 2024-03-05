@@ -27,3 +27,12 @@ UP_BUTTON = $08
 DOWN_BUTTON = $04
 LEFT_BUTTON = $02
 RIGHT_BUTTON = $01  
+
+;;;;;;;;;;;;;;;;;;;
+;;;; PHYSICS
+;;;;;;;;;;;;;;;;;;;
+MAXSPEED = 120
+JUMPSPEED = 100
+ACCEL = 2
+STOP = 2
+GRAVITY = 109
