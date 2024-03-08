@@ -83,9 +83,7 @@ UpdateSpritePosit:
 	
 
 	lda #GRAVITY
-	bpl :+
-		dec YPos+1
-		:
+
 	clc
 	sbc YPos
 	sta YPos
@@ -93,10 +91,12 @@ UpdateSpritePosit:
 	adc YPos+1
 	sta YPos+1
 	
+lda YVel
+	sbc #AIRDECELL
+	sta YVel
+
 	lda YVel
-	bpl :+
-		dec YPos+1
-		:
+	
 	clc
 	adc YPos
 	sta YPos
@@ -104,9 +104,7 @@ UpdateSpritePosit:
 	adc YPos+1
 	sta YPos+1
 
-	lda YVel
-	sbc #AIRDECELL
-	sta YVel
+	
 
 	
 SpriteUpdate:
