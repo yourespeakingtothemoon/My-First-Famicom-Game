@@ -115,8 +115,8 @@ idle:
 walk:
 	lda #0
 	sta TileOffset
-	lda XPos
-	and #%00000001
+	lda XPos+1
+	and #%00000011
 	beq :+
 		lda #1
 		sta TileOffset
