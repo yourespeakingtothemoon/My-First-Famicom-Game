@@ -92,22 +92,22 @@ idle:
 		sta TileOffset
 	:
 
-	lda #03
+	lda sprite1
 	clc
 	adc TileOffset
 	sta $201
 
-	lda #01
+	lda sprite2
 	clc
 	adc TileOffset
 	sta $205
 
-	lda #05
+	lda sprite3
 	clc
 	adc TileOffset
 	sta $209
 
-	lda #07
+	lda sprite4
 	clc
 	adc TileOffset
 	sta $20D
@@ -122,22 +122,22 @@ walk:
 		sta TileOffset
 	:
 
-	lda #$0C
+	lda spritewalk1
 	clc
 	adc TileOffset
 	sta $201
 
-	lda #$0A
+	lda spritewalk2
 	clc
 	adc TileOffset
 	sta $205
 
-	lda #$0E
+	lda spritewalk3
 	clc
 	adc TileOffset
 	sta $209
 
-	lda #$10
+	lda spritewalk4
 	clc
 	adc TileOffset
 	sta $20D

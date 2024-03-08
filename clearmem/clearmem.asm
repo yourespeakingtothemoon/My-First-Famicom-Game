@@ -16,6 +16,18 @@ YPos: .res 2
 XVel: .res 1
 YVel: .res 1
 
+;sprite pointers
+sprite1: .res 1
+sprite2: .res 1
+sprite3: .res 1
+sprite4: .res 1
+;same for walkin'
+spritewalk1: .res 1
+spritewalk2: .res 1
+spritewalk3: .res 1
+spritewalk4: .res 1
+
+
 AnimFlag: .res 1
 TileOffset: .res 1
 
@@ -46,6 +58,24 @@ RESET:
 	sta Clock60
 	sta TileOffset
 	sta AnimFlag
+
+	lda #03
+	sta sprite1
+	lda #01
+	sta sprite2
+	lda #05
+	sta sprite3
+	lda #07
+	sta sprite4
+
+	lda #$0C
+	sta spritewalk1
+	lda #$0A
+	sta spritewalk2
+	lda #$0E
+	sta spritewalk3
+	lda #$10
+	sta spritewalk4
 
 	ldx #0
 	lda SpriteData,x
