@@ -95,9 +95,9 @@ CheckDown:
 lda YVel
 	sec
 	adc #GRAVITY
-    cmp #MAXFALLSPEED
+    cmp #256-MAXFALLSPEED
     bcc:+
-    lda #MAXFALLSPEED
+    lda #256-MAXFALLSPEED
     :
 	sta YVel
     lda Buttons
