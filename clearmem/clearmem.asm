@@ -37,10 +37,10 @@ AnimationProcs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RESET:
 	INIT_NES
+	initalizeReserves
 	lda #0
 	sta Frame
 	sta Clock60
-	initalizeReserves
 	lda #20
 	sta XVel
 
@@ -79,7 +79,6 @@ NMI:
 	jsr ReadButtons
 	buttonChecks
 	playerUpdate
-	jsr processAnimation
 	lda Frame
 	cmp #60
 	bne :+
@@ -87,6 +86,7 @@ NMI:
 	lda #0
 	sta Frame
 :
+	jsr processAnimation
 	rti
 IRQ:
 	rti
