@@ -69,7 +69,7 @@ UpdateSpritePosit:
 
 	lda YVel
 	sec
-	sbc #GRAVITY
+	adc #GRAVITY
 	cmp #256-GRAVITY
 	bcc :+
 		lda #256-GRAVITY
