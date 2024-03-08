@@ -76,7 +76,7 @@ UpdateSpritePosit:
 	
 		:
 	sta YVel
-	lda YVel
+	;lda YVel
 	bpl :+
 		dec YPos+1
 		:
