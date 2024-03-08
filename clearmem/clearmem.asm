@@ -122,8 +122,8 @@ NMI:
 	lda #0
 	sta AnimFlag
 	jsr ReadButtons
-	buttonChecks
 	jsr CheckCollide
+	buttonChecks
 	playerUpdate
 	lda Frame
 	cmp #60
