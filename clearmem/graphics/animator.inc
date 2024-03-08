@@ -79,6 +79,7 @@ IdleAnimation:
         lda IDLHORN
         sta player4
     jmp EndAnimation
+    EndAnimation:
 .endproc
 Animate:
     lda frameCounter
