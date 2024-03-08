@@ -80,7 +80,7 @@ UpdateSpritePosit:
 		dec YPos+1
 		:
 	clc
-	dec YPos
+	sbc YPos
 	sta YPos
 	lda #0
 	adc YPos+1
