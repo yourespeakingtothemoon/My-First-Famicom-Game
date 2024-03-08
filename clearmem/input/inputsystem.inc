@@ -28,7 +28,10 @@ CheckRight:
     and #RIGHT_BUTTON
     beq NotRight
 ;;controller do
+lda #0
+sta Flipflag
 lda XVel
+bmi NotRight
 clc
 adc #ACCEL
 cmp #MAXSPEED
@@ -52,10 +55,33 @@ bcc :+
 CheckLeft:
     lda Buttons
     and #LEFT_BUTTON
-    beq CheckUp
+    beq NotLeft
 ;;controller do
-        dec XPos
-        inc AnimFlag
+lda #1
+sta Flipflag
+lda XVel
+beq:+
+bpl NotLeft
+:
+sec 
+sbc #ACCEL
+cmp #256-MAXSPEED
+bcs :+
+    lda #256-MAXSPEED
+    :
+    sta XVel
+    jmp CheckUp
+        NotLeft:
+        lda XVel
+        bpl CheckUp
+       cmp #256-STOP
+       bcc:+
+       lda #256-STOP
+       :
+       adc #STOP
+       sta XVel
+       lda #0
+        sta AnimFlag
 CheckUp:
     lda Buttons
     and #UP_BUTTON

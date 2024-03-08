@@ -27,7 +27,7 @@ spritewalk2: .res 1
 spritewalk3: .res 1
 spritewalk4: .res 1
 
-
+Flipflag: .res 1
 AnimFlag: .res 1
 TileOffset: .res 1
 
