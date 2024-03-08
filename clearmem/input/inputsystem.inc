@@ -98,7 +98,7 @@ CheckDown:
 CheckA:
     lda Buttons
     and #A_BUTTON
-    beq notA
+    beq CheckB
 ;;controller do
     lda #JUMPSPEED
     sta YVel
