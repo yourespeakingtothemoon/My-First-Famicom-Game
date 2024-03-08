@@ -101,7 +101,7 @@ PaletteData:
 ;;;;CHR-ROM DATA;;;;;;;
 
 .segment "CHARS"
-.incbin "graphics/curelomplay.chr"
+.incbin "graphics/curelomplay1.chr"
 
 .segment "VECTORS"
 ;------Interrupt Handlers---------
