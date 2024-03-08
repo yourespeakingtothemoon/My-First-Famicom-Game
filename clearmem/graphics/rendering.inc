@@ -65,14 +65,16 @@ UpdateSpritePosit:
 	sta XPos+1
 
 	
-	lda YPos
+	lda GRAVITY
 	bpl :+
 		dec YPos+1
 		:
 	clc
-	dec GRAVITY
+	dec YPos
 	sta YPos
-
+	lda #0
+	adc YPos+1
+	sta YPos+1
 
 	
 SpriteUpdate:
