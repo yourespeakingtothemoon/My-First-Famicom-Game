@@ -87,7 +87,7 @@ idle:
 	lda #0
 	sta TileOffset
 	lda Frame+1
-	and #%00000001
+	and #%00000010
 	beq :+
 		lda #1
 		sta TileOffset
