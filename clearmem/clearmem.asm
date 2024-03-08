@@ -49,7 +49,7 @@ BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo firs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 graphicsProcs
 buttonProcs
-CollisionProcs
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  RESET code, runs every time the NES console is reset  ;;;;;
 ;  game initalization code should all be contained here ;;;;;;
@@ -118,8 +118,8 @@ NMI:
 	;inc frameCounter
 	lda #$02
 	sta $4014
-	
-	jsr CheckCollide
+
+	CollisionCheck
 	
 	lda #0
 	sta AnimFlag

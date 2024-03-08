@@ -7,9 +7,9 @@
 	sta PPU_ADDR
 .endmacro
 
-.macro CollisionProcs
+.macro CollisionCheck
 
-.proc CheckCollide
+CheckCollide:
 LDX XPos
 LDY YPos
 
@@ -46,5 +46,5 @@ beq :+
 
 
 
-.endproc
+
 .endmacro
