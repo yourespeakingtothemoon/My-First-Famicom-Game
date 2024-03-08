@@ -66,8 +66,20 @@ UpdateSpritePosit:
 
 
 
-
-	
+lda JumpFlag
+cmp #0
+beq NoJump
+    	lda YVel
+	bpl :+
+		dec YPos+1
+		:
+	clc
+	adc YPos
+	sta YPos
+	lda #0
+	adc YPos+1
+	sta YPos+1
+NoJump:	
 	lda YVel
 	bpl :+
 		dec YPos+1

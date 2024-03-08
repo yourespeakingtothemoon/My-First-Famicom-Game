@@ -29,6 +29,7 @@ spritewalk4: .res 1
 
 Flipflag: .res 1
 AnimFlag: .res 1
+JumpFlag: .res 1
 TileOffset: .res 1
 
 Frame: .res 1 	;Reserve for frame

@@ -108,8 +108,15 @@ lda YVel
 CheckA:
     lda Buttons
     and #A_BUTTON
-    beq CheckB
+    beq NotA
 ;;controller do
+    lda $01
+    sta JumpFlag
+    jmp CheckB
+    NotA:
+    lda $00
+    sta JumpFlag
+
 CheckB:
     lda Buttons
     and #B_BUTTON
