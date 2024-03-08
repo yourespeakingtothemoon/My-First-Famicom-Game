@@ -44,7 +44,6 @@ RESET:
 	lda #0
 	sta Frame
 	sta Clock60
-	sta PlayerAnimFrame 
 	sta TileOffset
 	sta AnimFlag
 
