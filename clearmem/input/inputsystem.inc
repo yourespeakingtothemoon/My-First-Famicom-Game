@@ -71,7 +71,7 @@ bcs :+
     sta XVel
     lda $01
 sta Flipflag
-sta
+sta AnimFlag
     jmp CheckUp
         NotLeft:
         lda XVel
