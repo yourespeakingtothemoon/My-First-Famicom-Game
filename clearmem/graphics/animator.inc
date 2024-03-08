@@ -45,6 +45,12 @@ sta player4
 
 .proc AnimationChange
 
+
+
+Animate:
+   ; lda frameCounter
+   ; cmp ANIMDELAY
+   ; bcc SpriteData
 CheckAnimationState:
    ;lda PlayerAnimState
    ;cmp NOANIM
@@ -80,12 +86,6 @@ IdleAnimation:
         sta player4
     jmp EndAnimation
     EndAnimation:
-.endproc
-Animate:
-   ; lda frameCounter
-   ; cmp ANIMDELAY
-   ; bcc SpriteData
-    jsr AnimationChange
    ; lda #0
    ; sta frameCounter
 SpriteData:
