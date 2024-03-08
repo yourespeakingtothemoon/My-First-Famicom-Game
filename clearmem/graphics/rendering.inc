@@ -93,7 +93,7 @@ UpdateSpritePosit:
 	sta YPos+1
 
 lda YVel
-cmp #09
+cmp #GRAVITY
 bcc :+
 	lda #GRAVITY
 	bpl :+
