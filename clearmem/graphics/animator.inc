@@ -90,9 +90,9 @@ Animate:
     jsr AnimationChange
 SpriteData:
     ;		  y | tile# |   attribute           |  x
-.byte  	$10,	player2,	PlayerDirectionFlag,	$10
-.byte	$10,	player1,	PlayerDirectionFlag,	$18
-.byte	$18,	player3,	PlayerDirectionFlag,	$10
-.byte	$18,	player4,	PlayerDirectionFlag,	$18
+.byte  	$10,	player2,	%00000000,	$10
+.byte	$10,	player1,	%00000000,	$18
+.byte	$18,	player3,	%00000000,	$10
+.byte	$18,	player4,	%00000000,	$18
 
 .endmacro
