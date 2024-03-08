@@ -46,5 +46,5 @@ beq :+
 
 
 
-
+.endproc
 .endmacro
