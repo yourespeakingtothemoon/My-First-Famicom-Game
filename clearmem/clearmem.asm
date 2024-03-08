@@ -5,6 +5,7 @@
 .include "core/utils.inc"
 .include "graphics/rendering.inc"
 .include "input/inputsystem.inc"
+.include "graphics/animator.inc"
 
 
 .segment "ZEROPAGE"
@@ -19,6 +20,7 @@ Frame: .res 1 	;Reserve for frame
 Clock60: .res 1 
 BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo first hi last
 
+animationReservations
 
 
 
@@ -69,7 +71,7 @@ LoopForever:
 
 NMI:
 	inc Frame
-
+	inc frameCounter
 	lda #$02
 	sta $4014
 
@@ -95,7 +97,7 @@ PaletteData:
 	PlayPalette
 	PlayPalette
 	BetaScreen
-	CurelomStill
+	processAnimation
 ;;;;CHR-ROM DATA;;;;;;;
 
 .segment "CHARS"
