@@ -54,6 +54,9 @@ LoopSprite:
 .macro playerUpdate
 UpdateSpritePosit:
 	lda XVel
+	bpl :+
+		dec XPos+1
+		:
 	clc
 	adc XPos
 	sta XPos
