@@ -24,7 +24,22 @@
 
 .endmacro
 
+.macro initalizeReserves
+lda #0
+sta frameCounter
+sta PlayerDirectionFlag
+lda %00000001
+sta PlayerAnimState
+lda STDFACE
+sta player1
+lda STDTAIL
+sta player2
+lda STDBACKFOOT
+sta player3
+lda STDHORN
+sta player4
 
+.endmacro 
 
 .macro processAnimation
 
@@ -78,3 +93,5 @@ SpriteData:
 .byte	$10,	player1,	PlayerDirectionFlag,	$18
 .byte	$18,	player3,	PlayerDirectionFlag,	$10
 .byte	$18,	player4,	PlayerDirectionFlag,	$18
+
+.endmacro
