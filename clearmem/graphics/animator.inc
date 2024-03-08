@@ -82,12 +82,12 @@ IdleAnimation:
     EndAnimation:
 .endproc
 Animate:
-    lda frameCounter
-    cmp ANIMDELAY
-    bcc SpriteData
+   ; lda frameCounter
+   ; cmp ANIMDELAY
+   ; bcc SpriteData
     jsr AnimationChange
-    lda #0
-    sta frameCounter
+   ; lda #0
+   ; sta frameCounter
 SpriteData:
     ;		  y | tile# |   attribute           |  x
 .byte  	$10,	player2,	%00000000,	$10
