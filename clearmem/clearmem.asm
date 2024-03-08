@@ -60,6 +60,10 @@ RESET:
 	sta AnimFlag
 	sta Flipflag
 
+	lda GRAVITY
+	sta YVel
+
+
 	lda #03
 	sta sprite1
 	lda #01
