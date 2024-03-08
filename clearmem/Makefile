@@ -12,3 +12,9 @@ getschwifty:
 	make build
 	make run
 	make clean
+fetchnpull:
+	git fetch
+	git pull
+go:
+	make fetchnpull
+	make getschwifty

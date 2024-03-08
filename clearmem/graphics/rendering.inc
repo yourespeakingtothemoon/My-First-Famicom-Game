@@ -72,7 +72,7 @@ UpdateSpritePosit:
     ;	lda YVel
 	;bpl :+
 	;	dec YPos+1
-		:
+	;	:
 	;clc
 	;adc YPos
 	;sta YPos
