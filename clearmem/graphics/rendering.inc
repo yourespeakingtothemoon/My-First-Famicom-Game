@@ -81,10 +81,10 @@ UpdateSpritePosit:
 		dec YPos+1
 		:
 	clc
-	sbc YPos
+	adc YPos
 	sta YPos
 	lda #0
-	adc YPos+1
+	sbc YPos+1
 	sta YPos+1
 
 	
