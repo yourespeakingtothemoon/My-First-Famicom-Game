@@ -15,6 +15,7 @@ YPos: .res 2
 ;physics
 XVel: .res 1
 YVel: .res 1
+JumpVel: .res 1
 
 ;sprite pointers
 sprite1: .res 1
@@ -29,7 +30,7 @@ spritewalk4: .res 1
 
 Flipflag: .res 1
 AnimFlag: .res 1
-JumpFlag: .res 1
+
 TileOffset: .res 1
 
 Frame: .res 1 	;Reserve for frame
@@ -60,6 +61,7 @@ RESET:
 	sta TileOffset
 	sta AnimFlag
 	sta Flipflag
+	sta JumpVel
 
 	lda GRAVITY
 	sta YVel

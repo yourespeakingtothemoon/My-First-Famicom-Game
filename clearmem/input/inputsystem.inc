@@ -108,20 +108,22 @@ lda YVel
 CheckA:
     lda Buttons
     and #A_BUTTON
-    beq CheckB
+    beq notA
 ;;controller do
    ; lda $01
     ;sta JumpFlag
-    lda YVel
+    lda JumpVel
     sec
-    sbc #JUMPSPEED
-    cmp #256-MAXJUMPSPEED
+    adc #JUMPSPEED
+    cmp #MAXJUMPSPEED
     bcc:+
-    lda #256-MAXJUMPSPEED
+    lda #MAXJUMPSPEED
     :
-    sta YVel
-
-   
+    sta JumpVel
+    jmp CheckB
+   notA:
+        lda #0
+        sta JumpVel
     ;lda $00
     ;sta JumpFlag
 
