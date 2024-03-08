@@ -39,7 +39,7 @@ RESET:
 	lda #0
 	sta Frame
 	sta Clock60
-
+	initalizeReserves
 	lda #20
 	sta XVel
 

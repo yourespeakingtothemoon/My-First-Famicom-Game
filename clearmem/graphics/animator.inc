@@ -86,7 +86,7 @@ Animate:
     bne SpriteData
     lda 0
     sta frameCounter
-    .proc AnimationChange
+    jsr AnimationChange
 SpriteData:
     ;		  y | tile# |   attribute           |  x
 .byte  	$10,	player2,	PlayerDirectionFlag,	$10
