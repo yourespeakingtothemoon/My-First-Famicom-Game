@@ -123,9 +123,9 @@ NMI:
 	lda YPos
 	cmp #4 ;check if player is on the ground
 	bcs :+
-	lda #$0E
+	lda #$BF
 	sta YVel
-		lda #$0E
+		lda #$BF
 	:
 	sta YPos
 
