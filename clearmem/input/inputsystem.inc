@@ -96,7 +96,7 @@ lda YVel
 	sec
 	adc #GRAVITY
     cmp #256
-    bcs :+
+    bcs:+
     lda #256
     :
 	sta YVel
