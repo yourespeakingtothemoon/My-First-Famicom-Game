@@ -26,10 +26,29 @@ LoopButtons:
 CheckRight:
     lda Buttons
     and #RIGHT_BUTTON
-    beq CheckLeft
+    beq NotRight
 ;;controller do
-        inc XPos
-        inc AnimFlag
+lda XVel
+clc
+adc #ACCEL
+cmp #MAXSPEED
+bcc :+
+    lda #MAXSPEED
+    :
+    sta XVel
+    lda $01
+    sta AnimFlag
+    jmp CheckLeft
+        NotRight:
+        lda XVel
+        cmp #STOP
+        bcs :+
+        lda #STOP+1
+        :
+        sbc #STOP
+        sta XVel
+        lda #0
+        sta AnimFlag
 CheckLeft:
     lda Buttons
     and #LEFT_BUTTON
