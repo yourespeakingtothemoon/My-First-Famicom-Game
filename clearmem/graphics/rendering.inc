@@ -85,7 +85,8 @@ UpdateSpritePosit:
 	lda #GRAVITY
 
 	clc
-	adc YPos
+	sbc YPos
+	
 	sta YPos
 	lda #0
 	adc YPos+1
@@ -95,11 +96,19 @@ UpdateSpritePosit:
 
 	lda YVel
 	clc
-	sbc YPos+1
+	adc YPos+1
+	cmp #5
+	bcc :+
+		lda #5
+		:
 	sta YPos+1
 
 	lda YVel
 	sbc #AIRDECELL
+	cmp #0
+	bmi :+
+		lda #0
+		:
 	sta YVel
 	
 
