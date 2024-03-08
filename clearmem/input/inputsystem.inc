@@ -110,12 +110,20 @@ CheckA:
     and #A_BUTTON
     beq NotA
 ;;controller do
-    lda $01
-    sta JumpFlag
+   ; lda $01
+    ;sta JumpFlag
+    lda YVel
+    sec
+    sbc #JUMPSPEED
+    cmp #256-MAXJUMPSPEED
+    bcc:+
+    lda #256-MAXJUMPSPEED
+    :
+    sta YVel
     jmp CheckB
-    NotA:
-    lda $00
-    sta JumpFlag
+   
+    ;lda $00
+    ;sta JumpFlag
 
 CheckB:
     lda Buttons
