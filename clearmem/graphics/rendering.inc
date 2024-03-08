@@ -65,7 +65,7 @@ UpdateSpritePosit:
 	sta XPos+1
 
 	
-	lda GRAVITY
+	lda YVel
 	bpl :+
 		dec YPos+1
 		:

@@ -117,6 +117,13 @@ NMI:
 	lda #0
 	sta AnimFlag
 	jsr ReadButtons
+applyGravity:
+lda YVel
+dec GRAVITY
+bpl :+
+lda #0
+sta YVel
+:
 	buttonChecks
 	playerUpdate
 	lda Frame
