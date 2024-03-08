@@ -102,9 +102,9 @@ CheckA:
 ;;controller do
     lda YPos+1
     adc #JUMPSPEED
-    cmp #JUMPSPEED
+    cmp #255
     bcc:+
-    lda #JUMPSPEED
+    lda #255
     :
     sta YPos+1
     ;lda $00
