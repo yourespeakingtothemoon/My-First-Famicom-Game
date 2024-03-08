@@ -31,6 +31,8 @@ spritewalk4: .res 1
 Flipflag: .res 1
 AnimFlag: .res 1
 
+temp: .res 1
+
 TileOffset: .res 1
 
 Frame: .res 1 	;Reserve for frame
@@ -47,7 +49,7 @@ BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo firs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 graphicsProcs
 buttonProcs
-
+CollisionProcs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  RESET code, runs every time the NES console is reset  ;;;;;
 ;  game initalization code should all be contained here ;;;;;;
@@ -121,6 +123,7 @@ NMI:
 	sta AnimFlag
 	jsr ReadButtons
 	buttonChecks
+	jsr CheckCollide
 	playerUpdate
 	lda Frame
 	cmp #60
@@ -143,6 +146,7 @@ PaletteData:
 	PlayPalette
 	BetaScreen
 	CurelomStill
+	collideMap
 ;;;;CHR-ROM DATA;;;;;;;
 
 .segment "CHARS"
