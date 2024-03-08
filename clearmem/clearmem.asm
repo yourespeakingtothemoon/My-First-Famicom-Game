@@ -119,7 +119,7 @@ NMI:
 	lda #$02
 	sta $4014
 
-	CollisionCheck
+	;CollisionCheck
 	
 	lda #0
 	sta AnimFlag
