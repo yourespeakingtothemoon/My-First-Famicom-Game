@@ -80,7 +80,7 @@ SpriteUpdate:
 
 lda AnimFlag
   cmp #0
-  beq walk
+  bne walk
 
 idle:
 ;this is the idle animation for the player, if not idle dont do this
@@ -93,22 +93,22 @@ idle:
 		sta TileOffset
 	:
 
-	lda #03
+	lda $03
 	clc
 	adc TileOffset
 	sta $201
 
-	lda #01
+	lda $01
 	clc
 	adc TileOffset
 	sta $205
 
-	lda #05
+	lda $05
 	clc
 	adc TileOffset
 	sta $209
 
-	lda #07
+	lda $07
 	clc
 	adc TileOffset
 	sta $20D
@@ -137,7 +137,7 @@ walk:
 	adc TileOffset
 	sta $209
 
-	lda #10
+	lda $10
 	clc
 	adc TileOffset
 	sta $20D
