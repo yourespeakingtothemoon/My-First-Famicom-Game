@@ -46,17 +46,17 @@ sta player4
 .proc AnimationChange
 
 CheckAnimationState:
-   lda PlayerAnimState
-   cmp NOANIM
-        beq NoAnimation
-    cmp IDLE
-        beq IdleAnimation
-    cmp WALK
-        beq WalkingAnimation
-    cmp PARACHUTE
-        beq ParachuteAnimation
+   ;lda PlayerAnimState
+   ;cmp NOANIM
+    ;    beq NoAnimation
+    ;cmp IDLE
+     ;   beq IdleAnimation
+    ;cmp WALK
+     ;   beq WalkingAnimation
+    ;cmp PARACHUTE
+     ;   beq ParachuteAnimation
 IdleAnimation:
-    lda playerframe1a
+    lda player1
     cmp STDFACE
         beq IdleFrame2
     ;;if not equal than initalize standard sprites
@@ -70,13 +70,13 @@ IdleAnimation:
     sta player4
     jmp EndAnimation
     IdleFrame2:
-        lda IDLEFACE
+        lda IDLFACE
         sta player1
-        lda IDLETAIL
+        lda IDLTAIL
         sta player2
-        lda IDLEBACKFOOT
+        lda IDLBACKFOOT
         sta player3
-        lda IDLEHORN
+        lda IDLHORN
         sta player4
     jmp EndAnimation
 .endproc
