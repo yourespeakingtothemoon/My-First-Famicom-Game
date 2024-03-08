@@ -36,8 +36,8 @@ bcc :+
     lda #MAXSPEED
     :
     sta XVel
-    lda $01
-    sta AnimFlag
+    ldx $01
+    stx AnimFlag
     jmp CheckLeft
         NotRight:
         lda XVel
