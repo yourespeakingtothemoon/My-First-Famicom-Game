@@ -123,9 +123,9 @@ CheckStart:
 :
 
 lda YVel
-cmp #GRAVITY
+cmp #AIRDECELL
 bcc :+
-sbc #GRAVITY
+sbc #AIRDECELL
 sta YVel
 :
 
