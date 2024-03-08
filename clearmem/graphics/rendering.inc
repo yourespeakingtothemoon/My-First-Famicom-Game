@@ -65,10 +65,10 @@ UpdateSpritePosit:
 	sta XPos+1
 
 	lda YVel
-	clc
 	adc GRAVITY
 	sta YVel
-	lda #0
+	lda YVel
+	clc
 	adc YPos
 	sta YPos
 	lda #0
