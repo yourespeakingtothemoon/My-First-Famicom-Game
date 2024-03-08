@@ -80,11 +80,10 @@ SpriteUpdate:
 
 lda AnimFlag
   cmp #0
-  beq :+
-	jmp walk
+  beq walk
 
 idle:
-;this is the idle animation fore the player, if not idle dont do this
+;this is the idle animation for the player, if not idle dont do this
 	lda #0
 	sta TileOffset
 	lda Frame+1
