@@ -121,11 +121,11 @@ NMI:
 
 	;CollisionCheck
 	lda YPos
-	cmp #25 ;check if player is on the ground
+	cmp #4 ;check if player is on the ground
 	bcs :+
 	lda #0
 	sta YVel
-		lda #25
+		lda #4
 	:
 	sta YPos
 
