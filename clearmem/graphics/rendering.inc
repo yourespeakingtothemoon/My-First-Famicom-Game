@@ -94,9 +94,7 @@ UpdateSpritePosit:
 lda YVel
 	sbc #AIRDECELL
 	sta YVel
-
 	lda YVel
-	
 	clc
 	adc YPos
 	sta YPos
