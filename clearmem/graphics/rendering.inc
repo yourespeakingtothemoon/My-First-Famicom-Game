@@ -96,8 +96,7 @@ UpdateSpritePosit:
 
 	lda YVel
 	clc
-	adc YPos+1
-
+	sbc YPos+1
 	sta YPos+1
 
 	lda YVel
