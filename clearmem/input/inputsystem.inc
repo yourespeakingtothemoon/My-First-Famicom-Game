@@ -95,6 +95,10 @@ CheckDown:
 lda YVel
 	sec
 	adc #GRAVITY
+    cmp #256
+    bcs :+
+    lda #256
+    :
 	sta YVel
     lda Buttons
     and #DOWN_BUTTON
