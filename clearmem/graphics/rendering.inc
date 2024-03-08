@@ -108,6 +108,11 @@ lda Flipflag
 		sta spritewalk4 
 		jmp Animcheck
 	NoFlip:
+		lda #%00000000
+		sta $0202
+		sta $0206
+		sta $020A
+		sta $020E
 	lda #$03
 	sta sprite1
 	lda #$01
