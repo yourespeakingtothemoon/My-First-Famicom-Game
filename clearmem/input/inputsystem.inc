@@ -101,7 +101,7 @@ CheckA:
     beq CheckB
 ;;controller do
     lda YVel
-    adc #JUMPSPEED
+    sbc #JUMPSPEED
     	cmp #5
 	bcc :+
 		lda #5
