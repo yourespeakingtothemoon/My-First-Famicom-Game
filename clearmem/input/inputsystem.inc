@@ -102,6 +102,10 @@ CheckA:
 ;;controller do
     lda YVel
     adc #JUMPSPEED
+    	cmp #5
+	bcc :+
+		lda #5
+		:
     sta YVel
     ;lda $00
     ;sta JumpFlag
