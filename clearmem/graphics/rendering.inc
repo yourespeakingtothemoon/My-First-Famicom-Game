@@ -91,7 +91,7 @@ UpdateSpritePosit:
 	adc YPos+1
 	sta YPos+1
 	
-lda YVel
+	lda YVel
 	sbc #AIRDECELL
 	sta YVel
 	lda YVel

@@ -36,8 +36,8 @@ JUMPSPEED = 255
 
 ACCEL = 1
 STOP = 4
-GRAVITY = 0
-AIRDECELL = 1
+GRAVITY = 1
+AIRDECELL = 0
 
 
 ;;;;;;;;;;;;;;;;;;;
