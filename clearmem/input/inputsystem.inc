@@ -102,9 +102,9 @@ CheckA:
 ;;controller do
     lda YVel
     adc #JUMPSPEED
-    	cmp #5
+    	cmp #1
 	bcc :+
-		lda #5
+		lda #1
 		:
     sta YVel
     ;lda $00

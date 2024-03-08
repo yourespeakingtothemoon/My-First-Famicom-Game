@@ -32,7 +32,7 @@ RIGHT_BUTTON = $01
 ;;;; PHYSICS
 ;;;;;;;;;;;;;;;;;;;
 MAXSPEED = 90
-JUMPSPEED = 3
+JUMPSPEED = 1
 
 ACCEL = 1
 STOP = 4
