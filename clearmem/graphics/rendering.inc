@@ -83,8 +83,8 @@ SpriteUpdate:
 	sta TileOffset
 	lda Frame+1
 	and #%00000001
-	beq:+
-		lda: #4
+	beq :+
+		lda #4
 		sta TileOffset
 	:
 
@@ -107,5 +107,5 @@ SpriteUpdate:
 	clc
 	adc TileOffset
 	sta $20D
-	
+
 .endmacro
