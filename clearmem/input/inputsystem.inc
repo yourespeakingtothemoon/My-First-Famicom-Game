@@ -123,8 +123,12 @@ CheckStart:
 :
 
 lda YVel
+cmp #GRAVITY
+bcc :+
 sbc #GRAVITY
 sta YVel
+:
+
 
 .endmacro
 
