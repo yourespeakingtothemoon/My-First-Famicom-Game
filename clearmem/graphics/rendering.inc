@@ -68,7 +68,7 @@ UpdateSpritePosit:
 
 
 	lda YVel
-	dec #GRAVITY
+	sbc #GRAVITY
 	bpl :+
 		dec YPos+1
 		:
