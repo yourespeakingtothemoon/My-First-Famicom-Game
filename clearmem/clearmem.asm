@@ -16,11 +16,14 @@ YPos: .res 2
 XVel: .res 1
 YVel: .res 1
 
+PLayerAnimFrame: .res 1
+TileOffset: .res 1
+
 Frame: .res 1 	;Reserve for frame
 Clock60: .res 1 
 BkgPtr: .res 2  ; lo and hi for background pointer - little endian order lo first hi last
 
-animationReservations
+
 
 
 
@@ -30,20 +33,20 @@ animationReservations
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 graphicsProcs
 buttonProcs
-AnimationProcs
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  RESET code, runs every time the NES console is reset  ;;;;;
 ;  game initalization code should all be contained here ;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 RESET:
 	INIT_NES
-	initalizeReserves
+
 	lda #0
 	sta Frame
 	sta Clock60
-	lda #20
-	sta XVel
-
+	sta PlayerAnimFrame 
+	sta TileOffset
+	
 	ldx #0
 	lda SpriteData,x
 	sta YPos+1
@@ -78,14 +81,14 @@ NMI:
 
 	jsr ReadButtons
 	buttonChecks
-	;playerUpdate
+	playerUpdate
 	lda Frame
 	cmp #60
 	bne :+
 	inc Clock60
 	lda #0
 	sta Frame
-	jsr processAnimation
+	
 :
 	rti
 IRQ:
@@ -99,7 +102,7 @@ PaletteData:
 	PlayPalette
 	PlayPalette
 	BetaScreen
-	animatedPlayerSpriteSTD
+	CurelomStill
 ;;;;CHR-ROM DATA;;;;;;;
 
 .segment "CHARS"

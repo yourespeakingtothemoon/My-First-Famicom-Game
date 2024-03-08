@@ -78,5 +78,34 @@ SpriteUpdate:
 	sta $0208
 	sta $020C
 
+;this is the idle animation fore the player, if not idle dont do this
+	lda #0
+	sta TileOffset
+	lda Frame+1
+	and #%00000001
+	beq:+
+		lda: #4
+		sta TileOffset
+	:
 
+	lda #03
+	clc
+	adc TileOffset
+	sta $201
+
+	lda #01
+	clc
+	adc TileOffset
+	sta $205
+
+	lda #05
+	clc
+	adc TileOffset
+	sta $209
+
+	lda #07
+	clc
+	adc TileOffset
+	sta $20D
+	
 .endmacro
