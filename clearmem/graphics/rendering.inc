@@ -72,9 +72,7 @@ UpdateSpritePosit:
 	clc
 	dec GRAVITY
 	sta YPos
-	lda #0
-	adc YPos+1
-	sta YPos+1
+
 
 	
 SpriteUpdate:
