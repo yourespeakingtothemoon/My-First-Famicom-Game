@@ -68,7 +68,7 @@ UpdateSpritePosit:
 
 
 	
-	lda YVel
+	lda YVel-256
 	bpl :+
 		dec YPos+1
 		:
