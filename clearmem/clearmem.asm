@@ -71,7 +71,6 @@ LoopForever:
 	jmp LoopForever 
 
 NMI:
-	jsr processAnimation
 	inc Frame
 	;inc frameCounter
 	lda #$02
@@ -79,13 +78,14 @@ NMI:
 
 	jsr ReadButtons
 	buttonChecks
-	playerUpdate
+	;playerUpdate
 	lda Frame
 	cmp #60
 	bne :+
 	inc Clock60
 	lda #0
 	sta Frame
+	jsr processAnimation
 :
 	rti
 IRQ:
