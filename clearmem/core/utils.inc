@@ -15,7 +15,7 @@ clc
 adc #$01
 tay
 jsr CheckCollide
-beq:+
+bne:+
  lda #0
  sta YVel
  dec YPos
@@ -30,7 +30,7 @@ clc
 adc #$01
 tay
 jsr CheckCollide
-beq:+
+bne:+
  lda #0
  sta XVel
  dec XPos
@@ -44,7 +44,7 @@ clc
 adc #$08
 tay
 jsr CheckCollide
-beq:+
+bne:+
  lda #0
  sta YVel
  dec XPos
