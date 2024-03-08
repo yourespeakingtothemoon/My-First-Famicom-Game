@@ -58,6 +58,7 @@ RESET:
 	sta Clock60
 	sta TileOffset
 	sta AnimFlag
+	sta Flipflag
 
 	lda #03
 	sta sprite1
