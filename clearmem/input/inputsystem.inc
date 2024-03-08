@@ -100,13 +100,9 @@ CheckA:
     and #A_BUTTON
     beq CheckB
 ;;controller do
-    lda YPos+1
+    lda YPos
     adc #JUMPSPEED
-    cmp #255
-    bcc:+
-    lda #255
-    :
-    sta YPos+1
+    sta YPos
     ;lda $00
     ;sta JumpFlag
 
