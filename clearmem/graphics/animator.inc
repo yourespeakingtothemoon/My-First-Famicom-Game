@@ -58,7 +58,7 @@ CheckAnimationState:
 IdleAnimation:
     lda player1
     cmp STDFACE
-        beq IdleFrame2
+        beq :IdleFrame2
     ;;if not equal than initalize standard sprites
     lda STDFACE
     sta player1
@@ -68,7 +68,7 @@ IdleAnimation:
     sta player3
     lda STDHORN
     sta player4
-    jmp EndAnimation
+    jmp :EndAnimation
     IdleFrame2:
         lda IDLFACE
         sta player1
@@ -78,16 +78,16 @@ IdleAnimation:
         sta player3
         lda IDLHORN
         sta player4
-    jmp EndAnimation
+    jmp :EndAnimation
     EndAnimation:
 .endproc
 Animate:
     lda frameCounter
     cmp ANIMDELAY
-    bne SpriteData
-    lda 0
-    sta frameCounter
+    bcc :SpriteData
     jsr AnimationChange
+    lda #0
+    sta frameCounter
 SpriteData:
     ;		  y | tile# |   attribute           |  x
 .byte  	$10,	player2,	%00000000,	$10
