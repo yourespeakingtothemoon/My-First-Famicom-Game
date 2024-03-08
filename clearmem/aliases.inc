@@ -36,6 +36,7 @@ JUMPSPEED = 100
 ACCEL = 1
 STOP = 4
 GRAVITY = 128
+MAXFALLSPEED = 200
 
 ;;;;;;;;;;;;;;;;;;;
 ;;;; ANIMATION
