@@ -57,8 +57,7 @@ CheckLeft:
     and #LEFT_BUTTON
     beq NotLeft
 ;;controller do
-lda #1
-sta Flipflag
+
 lda XVel
 beq:+
 bpl NotLeft
@@ -70,6 +69,9 @@ bcs :+
     lda #256-MAXSPEED
     :
     sta XVel
+    lda $01
+sta Flipflag
+sta
     jmp CheckUp
         NotLeft:
         lda XVel

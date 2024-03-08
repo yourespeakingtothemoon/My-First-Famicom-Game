@@ -83,7 +83,7 @@ SpriteUpdate:
 
 lda Flipflag
 	cmp #0 ; 0 means its not flipped
-	bne Animcheck
+	beq Animcheck
 		lda #%01000000
 		sta $0202
 		sta $0206
