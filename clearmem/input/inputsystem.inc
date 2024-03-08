@@ -100,8 +100,8 @@ CheckA:
     and #A_BUTTON
     beq CheckB
 ;;controller do
-    lda YVel
-    sbc #JUMPSPEED
+    lda #JUMPSPEED
+    adc YVel
     	cmp #5
 	bcc :+
 		lda #5
