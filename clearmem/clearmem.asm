@@ -119,10 +119,11 @@ NMI:
 	lda #$02
 	sta $4014
 	
+	jsr CheckCollide
+	
 	lda #0
 	sta AnimFlag
 	jsr ReadButtons
-	jsr CheckCollide
 	buttonChecks
 	playerUpdate
 	lda Frame
