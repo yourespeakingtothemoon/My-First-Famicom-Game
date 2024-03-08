@@ -88,7 +88,7 @@ UpdateSpritePosit:
 	sbc YPos
 	sta YPos
 	lda JumpVel
-	adc YPos
+	sbc YPos
 	sta YPos
 	lda #0
 	adc YPos+1
