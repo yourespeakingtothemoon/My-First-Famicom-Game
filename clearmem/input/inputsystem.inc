@@ -92,38 +92,16 @@ CheckUp:
 ;;controller do
         inc YPos
 CheckDown:
-lda YVel
-	sec
-	adc #GRAVITY
-    cmp #256-MAXFALLSPEED
-    bcc:+
-    lda #256-MAXFALLSPEED
-    :
-	sta YVel
-    lda Buttons
-    and #DOWN_BUTTON
-    beq CheckA
+
 ;;controller do
-        dec YPos
+       
 CheckA:
     lda Buttons
     and #A_BUTTON
     beq notA
 ;;controller do
-   ; lda $01
-    ;sta JumpFlag
-    lda JumpVel
-    sec
-    adc #JUMPSPEED
-    cmp #MAXJUMPSPEED
-    bcc:+
-    lda #MAXJUMPSPEED
-    :
-    sta JumpVel
-    jmp CheckB
-   notA:
-        lda #0
-        sta JumpVel
+    lda #JUMPSPEED
+    sta YVel
     ;lda $00
     ;sta JumpFlag
 
@@ -143,6 +121,11 @@ CheckStart:
     beq :+
 
 :
+
+lda YVel
+sbc #GRAVITY
+sta YVel
+
 .endmacro
 
 .macro buttonActionProcs_MainGame

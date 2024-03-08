@@ -80,17 +80,14 @@ UpdateSpritePosit:
 	;adc YPos+1
 	;sta YPos+1
 ;NoJump:	
-	lda YPos
-	adc JumpVel
-	sta YPos
+	
 	lda YVel
 	bpl :+
 		dec YPos+1
 		:
 	clc
-	sbc YPos
+	adc YPos
 	sta YPos
-
 	lda #0
 	adc YPos+1
 	sta YPos+1

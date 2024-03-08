@@ -33,11 +33,11 @@ RIGHT_BUTTON = $01
 ;;;;;;;;;;;;;;;;;;;
 MAXSPEED = 90
 JUMPSPEED = 100
-MAXJUMPSPEED = 200
+
 ACCEL = 1
 STOP = 4
-GRAVITY = 98
-MAXFALLSPEED = 98
+GRAVITY = 9
+
 
 ;;;;;;;;;;;;;;;;;;;
 ;;;; ANIMATION
