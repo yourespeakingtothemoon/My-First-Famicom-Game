@@ -83,7 +83,7 @@ SpriteUpdate:
 
 lda Flipflag
 	cmp #0 ; 0 means its not flipped
-	beq Animcheck
+	beq NoFlip
 		lda #%01000000
 		sta $0202
 		sta $0206
@@ -106,7 +106,25 @@ lda Flipflag
 		sta spritewalk3
 		lda #$0E
 		sta spritewalk4 
-		
+		jmp Animcheck
+	NoFlip:
+	lda #03
+	sta sprite1
+	lda #01
+	sta sprite2
+	lda #05
+	sta sprite3
+	lda #07
+	sta sprite4
+
+	lda #$0C
+	sta spritewalk1
+	lda #$0A
+	sta spritewalk2
+	lda #$0E
+	sta spritewalk3
+	lda #$10
+	sta spritewalk4	
 
 Animcheck:
 lda AnimFlag
