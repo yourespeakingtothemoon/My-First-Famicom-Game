@@ -84,7 +84,7 @@ UpdateSpritePosit:
 	sbc YPos
 	sta YPos
 	lda #0
-	sbc YPos+1
+	adc YPos+1
 	sta YPos+1
 
 	
