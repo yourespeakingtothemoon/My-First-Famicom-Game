@@ -71,8 +71,9 @@ LoopForever:
 	jmp LoopForever 
 
 NMI:
+	jsr processAnimation
 	inc Frame
-	inc frameCounter
+	;inc frameCounter
 	lda #$02
 	sta $4014
 
@@ -85,7 +86,6 @@ NMI:
 	inc Clock60
 	lda #0
 	sta Frame
-	jsr processAnimation
 :
 	rti
 IRQ:
