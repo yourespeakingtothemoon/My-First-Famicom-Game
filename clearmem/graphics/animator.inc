@@ -43,11 +43,11 @@ sta player4
 
 .macro AnimationProcs
 .proc processAnimation
-Animate:
+;Animate:
    ; lda frameCounter
    ; cmp ANIMDELAY
    ; bcc SpriteData
-CheckAnimationState:
+;CheckAnimationState:
    ;lda PlayerAnimState
    ;cmp NOANIM
     ;    beq NoAnimation

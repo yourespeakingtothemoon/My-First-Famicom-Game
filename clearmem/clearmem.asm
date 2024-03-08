@@ -77,9 +77,9 @@ NMI:
 	sta $4014
 
 	jsr ReadButtons
-	jsr processAnimation
 	buttonChecks
 	playerUpdate
+	jsr processAnimation
 	lda Frame
 	cmp #60
 	bne :+
