@@ -92,6 +92,15 @@ CheckUp:
 ;;controller do
         inc YPos
 CheckDown:
+lda YVel
+	sec
+	adc #GRAVITY
+	cmp #256-GRAVITY
+	bcc :+
+		lda #256-GRAVITY
+	
+		:
+	sta YVel
     lda Buttons
     and #DOWN_BUTTON
     beq CheckA
