@@ -120,14 +120,14 @@ NMI:
 	sta $4014
 
 	;CollisionCheck
-	lda YPos+1
+	lda YPos
 	cmp #4 ;check if player is on the ground
 	bcs :+
-	lda #0
+	lda #$0E
 	sta YVel
-		lda #4
+		lda #$0E
 	:
-	sta YPos+1
+	sta YPos
 
 
 	lda #0
