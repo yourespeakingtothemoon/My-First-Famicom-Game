@@ -85,8 +85,8 @@ NMI:
 	inc Clock60
 	lda #0
 	sta Frame
-:
 	jsr processAnimation
+:
 	rti
 IRQ:
 	rti
