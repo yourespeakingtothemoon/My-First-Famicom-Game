@@ -80,7 +80,7 @@ SpriteUpdate:
 
 lda AnimFlag
   cmp #0
-  beq walk
+  bne walk
 :
 idle:
 ;this is the idle animation for the player, if not idle dont do this
