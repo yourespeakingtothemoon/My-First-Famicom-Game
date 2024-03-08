@@ -43,7 +43,7 @@ sta player4
 
 .macro processAnimation
 
-.proc AnimationChange
+
 
 
 
