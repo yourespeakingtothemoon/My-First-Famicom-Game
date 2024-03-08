@@ -35,7 +35,7 @@ MAXSPEED = 90
 JUMPSPEED = 100
 ACCEL = 1
 STOP = 4
-GRAVITY = 109
+GRAVITY = 98
 
 ;;;;;;;;;;;;;;;;;;;
 ;;;; ANIMATION
