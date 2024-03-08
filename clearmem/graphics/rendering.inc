@@ -81,7 +81,6 @@ SpriteUpdate:
 lda AnimFlag
   cmp #0
   bne walk
-:
 idle:
 ;this is the idle animation for the player, if not idle dont do this
 	lda #0
