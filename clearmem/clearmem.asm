@@ -30,6 +30,7 @@ animationReservations
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 graphicsProcs
 buttonProcs
+AnimationProcs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;  RESET code, runs every time the NES console is reset  ;;;;;
 ;  game initalization code should all be contained here ;;;;;;
@@ -76,6 +77,7 @@ NMI:
 	sta $4014
 
 	jsr ReadButtons
+	jsr processAnimation
 	buttonChecks
 	playerUpdate
 	lda Frame
@@ -97,7 +99,7 @@ PaletteData:
 	PlayPalette
 	PlayPalette
 	BetaScreen
-	processAnimation
+	animatedPlayerSpriteSTD
 ;;;;CHR-ROM DATA;;;;;;;
 
 .segment "CHARS"

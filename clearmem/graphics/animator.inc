@@ -41,12 +41,8 @@ sta player4
 
 .endmacro 
 
-.macro processAnimation
-
-
-
-
-
+.macro AnimationProcs
+.proc processAnimation
 Animate:
    ; lda frameCounter
    ; cmp ANIMDELAY
@@ -88,6 +84,9 @@ IdleAnimation:
     EndAnimation:
    ; lda #0
    ; sta frameCounter
+.endproc
+.endmacro
+.macro animatedPlayerSpriteSTD
 SpriteData:
     ;		  y | tile# |   attribute           |  x
 .byte  	$10,	player2,	%00000000,	$10
