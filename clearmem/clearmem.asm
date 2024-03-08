@@ -16,7 +16,7 @@ YPos: .res 2
 XVel: .res 1
 YVel: .res 1
 
-PLayerAnimFrame: .res 1
+PlayerAnimFrame: .res 1
 TileOffset: .res 1
 
 Frame: .res 1 	;Reserve for frame
