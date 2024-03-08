@@ -37,7 +37,7 @@ JUMPSPEED = 150
 ACCEL = 1
 STOP = 4
 GRAVITY = 1
-AIRDECELL = 0
+AIRDECELL = 100
 
 
 ;;;;;;;;;;;;;;;;;;;
