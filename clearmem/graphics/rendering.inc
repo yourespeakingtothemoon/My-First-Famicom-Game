@@ -84,7 +84,7 @@ SpriteUpdate:
 	lda Frame+1
 	and #%00000001
 	beq :+
-		lda #1
+		lda $01
 		sta TileOffset
 	:
 
