@@ -123,17 +123,17 @@ walk:
 		sta TileOffset
 	:
 
-	lda #0C
+	lda $0C
 	clc
 	adc TileOffset
 	sta $201
 
-	lda #0A
+	lda $0A
 	clc
 	adc TileOffset
 	sta $205
 
-	lda #0E
+	lda $0E
 	clc
 	adc TileOffset
 	sta $209
