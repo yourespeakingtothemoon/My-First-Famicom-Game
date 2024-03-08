@@ -31,10 +31,10 @@ RIGHT_BUTTON = $01
 ;;;;;;;;;;;;;;;;;;;
 ;;;; PHYSICS
 ;;;;;;;;;;;;;;;;;;;
-MAXSPEED = 120
+MAXSPEED = 90
 JUMPSPEED = 100
-ACCEL = 2
-STOP = 2
+ACCEL = 1
+STOP = 4
 GRAVITY = 109
 
 ;;;;;;;;;;;;;;;;;;;
