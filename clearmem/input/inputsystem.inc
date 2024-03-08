@@ -29,12 +29,14 @@ CheckRight:
     beq CheckLeft
 ;;controller do
         inc XPos
+        inc AnimFlag
 CheckLeft:
     lda Buttons
     and #LEFT_BUTTON
     beq CheckUp
 ;;controller do
         dec XPos
+        inc AnimFlag
 CheckUp:
     lda Buttons
     and #UP_BUTTON

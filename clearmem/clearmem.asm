@@ -16,7 +16,7 @@ YPos: .res 2
 XVel: .res 1
 YVel: .res 1
 
-PlayerAnimFrame: .res 1
+AnimFlag: .res 1
 TileOffset: .res 1
 
 Frame: .res 1 	;Reserve for frame
@@ -46,7 +46,8 @@ RESET:
 	sta Clock60
 	sta PlayerAnimFrame 
 	sta TileOffset
-	
+	sta AnimFlag
+
 	ldx #0
 	lda SpriteData,x
 	sta YPos+1
@@ -78,7 +79,9 @@ NMI:
 	;inc frameCounter
 	lda #$02
 	sta $4014
-
+	
+	lda #0
+	sta AnimFlag
 	jsr ReadButtons
 	buttonChecks
 	playerUpdate

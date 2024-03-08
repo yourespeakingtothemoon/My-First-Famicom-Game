@@ -78,6 +78,12 @@ SpriteUpdate:
 	sta $0208
 	sta $020C
 
+lda AnimFlag
+  cmp #0
+  beq :+
+	jmp walk
+
+idle:
 ;this is the idle animation fore the player, if not idle dont do this
 	lda #0
 	sta TileOffset
@@ -107,5 +113,34 @@ SpriteUpdate:
 	clc
 	adc TileOffset
 	sta $20D
+	jmp endAnim
+walk:
+	lda #0
+	sta TileOffset
+	lda XPos+1
+	beq :+
+		lda #1
+		sta TileOffset
+	:
 
+	lda #0C
+	clc
+	adc TileOffset
+	sta $201
+
+	lda #0A
+	clc
+	adc TileOffset
+	sta $205
+
+	lda #0E
+	clc
+	adc TileOffset
+	sta $209
+
+	lda #10
+	clc
+	adc TileOffset
+	sta $20D
+ endAnim:
 .endmacro
