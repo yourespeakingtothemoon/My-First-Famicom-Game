@@ -20,7 +20,7 @@ beq :+
  sta YVel
  dec YPos
  :
-CheckRight:
+CheckRightColide:
 lda XPos
 clc
 adc #$07
