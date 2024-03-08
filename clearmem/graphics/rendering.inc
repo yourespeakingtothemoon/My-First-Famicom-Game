@@ -103,7 +103,7 @@ UpdateSpritePosit:
 	lda YVel
 	sbc #AIRDECELL
 	cmp #0
-	bmi :+
+	bcs :+
 		lda #0
 		:
 	sta YVel
