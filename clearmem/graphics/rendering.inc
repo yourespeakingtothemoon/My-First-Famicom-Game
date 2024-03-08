@@ -63,6 +63,18 @@ UpdateSpritePosit:
 	lda #0
 	adc XPos+1
 	sta XPos+1
+
+	lda YVel
+	clc
+	adc GRAVITY
+	sta YVel
+	lda #0
+	adc YPos
+	sta YPos
+	lda #0
+	adc YPos+1
+	sta YPos+1
+
 	
 SpriteUpdate:
 	lda XPos+1
