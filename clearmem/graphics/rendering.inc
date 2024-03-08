@@ -105,12 +105,12 @@ idle:
 	lda #05
 	clc
 	adc TileOffset
-	sta $20D
+	sta $209
 
 	lda #07
 	clc
 	adc TileOffset
-	sta $211
+	sta $20D
 	jmp endAnim
 walk:
 	lda #0
@@ -135,11 +135,11 @@ walk:
 	lda #$0E
 	clc
 	adc TileOffset
-	sta $20D
+	sta $209
 
 	lda #$10
 	clc
 	adc TileOffset
-	sta $211
+	sta $20D
  endAnim:
 .endmacro
