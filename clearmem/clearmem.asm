@@ -122,7 +122,7 @@ NMI:
 	;CollisionCheck
 	lda YPos+1
 	cmp #$BF ;check if player is on the ground
-	bcs :+
+	bcc :+
 	lda #0
 	sta YVel
 		lda #$BF
