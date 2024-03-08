@@ -44,6 +44,7 @@ bcc :+
     jmp CheckLeft
         NotRight:
         lda XVel
+        bmi CheckLeft
         cmp #STOP
         bcs :+
         lda #STOP+1
