@@ -125,7 +125,7 @@ NMI:
 	bcs :+
 	lda #0
 	sta YVel
-		lda #$0D
+		lda #$03
 	:
 	sta YPos
 
