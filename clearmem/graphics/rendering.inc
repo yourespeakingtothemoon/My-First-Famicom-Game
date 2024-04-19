@@ -137,10 +137,12 @@ SpriteUpdate:
 ;;increment the train position by 1 for each sprite
 	sta $0213
 	sta $021B
-	clc
+	clc 
 	adc #8
 	sta $0217
 	sta $021F
+	;;coins
+	;;snake
 	clc
 	adc #8
 	sta $021D
@@ -149,26 +151,7 @@ SpriteUpdate:
 	adc #8
 	sta $0225
 	sta $0229
-	clc
-	adc #8
-	sta $022D
-	sta $0231
-	clc
-	adc #8
-	sta $0235
-	sta $0239
-	clc
-	adc #8
-	sta $023D
-	sta $0241
-	clc
-	adc #8
-	sta $0245
-	sta $0249
-	clc
-	adc #8
-	sta $024D
-	sta $0251
+
 	
 
 
