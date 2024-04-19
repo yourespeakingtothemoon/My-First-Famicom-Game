@@ -141,6 +141,8 @@ SpriteUpdate:
 	sta $0233
 	sta $023B
 	sta $0243
+	sta $024B
+	sta $0253
 	clc
 	adc #8
 	sta $0217
@@ -150,8 +152,11 @@ SpriteUpdate:
 	sta $0237
 	sta $023F
 	sta $0247
-	sta $024B
-	
+	sta $024F
+	sta $0257
+
+
+
 
 
 lda Flipflag
