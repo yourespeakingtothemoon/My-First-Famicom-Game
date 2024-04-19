@@ -143,32 +143,33 @@ SpriteUpdate:
 	sta $021F
 	clc
 	adc #8
-	sta $0223
-	sta $022B
+	sta $021D
+	sta $0221
 	clc
 	adc #8
-	sta $0233
-	sta $023B
+	sta $0225
+	sta $0229
 	clc
 	adc #8
-	sta $0227
-	sta $022F
+	sta $022D
+	sta $0231
 	clc
 	adc #8
-	sta $0243
-	sta $024B
+	sta $0235
+	sta $0239
 	clc
 	adc #8
-	sta $023F
-	sta $0247
+	sta $023D
+	sta $0241
 	clc
 	adc #8
-	sta $0253
-	sta $0237
+	sta $0245
+	sta $0249
 	clc
 	adc #8
-	sta $024F
-	sta $0257
+	sta $024D
+	sta $0251
+	
 
 
 
