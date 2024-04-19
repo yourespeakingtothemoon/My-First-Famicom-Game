@@ -151,15 +151,6 @@ SpriteUpdate:
 	sta $023C
 	sta $0244
 
-	lda TrainPos+1
-	sta 
-
-
-
-	
-	
-
-	
 
 lda Flipflag
 	cmp #0 ; 0 means its not flipped
