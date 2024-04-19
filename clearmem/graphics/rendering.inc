@@ -135,22 +135,52 @@ SpriteUpdate:
 	lda TrainPos
 ;;pattern for this is first sprite, 3rd sprite and then we do the 2nd and 4th sprite
 ;;increment the train position by 1 for each sprite
-	sta $0213
-	sta $021B
-	clc 
-	adc #8
-	sta $0217
-	sta $021F
-	;;coins
-	;;snake
-	clc
-	adc #8
-	sta $021D
-	sta $0221
-	clc
-	adc #8
-	sta $0225
-	sta $0229
+	lda TrainPos
+    sta $0213
+    sta $021B
+    clc 
+    adc #8
+    sta $0217
+    sta $0233
+    clc 
+    adc #8
+    sta $0237
+    sta $023F
+    clc
+    adc #8
+    sta $023B
+    sta $0243
+    clc
+    adc #8
+    sta $0247
+    sta $024B
+    clc
+    adc #8
+    sta $024F
+    sta $0255
+    clc
+    adc #8
+    sta $0259
+    sta $025F
+    clc
+    adc #8
+    sta $0263
+    sta $0269
+    clc
+    adc #8
+    sta $026D
+    sta $0273
+    clc
+    adc #8
+    sta $0277
+    sta $027D
+    clc
+    adc #8
+    sta $0281
+    sta $0287
+
+
+
 
 	
 
