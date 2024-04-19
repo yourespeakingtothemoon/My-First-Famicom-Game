@@ -85,8 +85,8 @@ BackgroundData:
 .macro CurelomStill
 SpriteData:
 ;		  y | tile# |   attribute |  x
-.byte  	$10,	$03,	%00000000,	$01
-.byte	$10,	$01,	%00000000,	$02
+.byte  	$0A,	$03,	%00000000,	$01
+.byte	$0A,	$01,	%00000000,	$02
 .byte	$0B,	$05,	%00000000,	$01
 .byte	$0B,	$07,	%00000000,	$02
 
