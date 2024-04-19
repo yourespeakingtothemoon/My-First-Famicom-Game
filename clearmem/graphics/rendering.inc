@@ -134,22 +134,24 @@ SpriteUpdate:
 ;;update train position for all 14 sprites
 	lda TrainPos
 ;;pattern for this is first sprite, 3rd sprite and then we do the 2nd and 4th sprite
-	sta $0210
-	sta $0218
-	sta $0220
-	sta $0228
-	sta $0230
-	sta $0238
-	sta $0240
+	sta $0213
+	sta $021B
+	sta $0223
+	sta $022B
+	sta $0233
+	sta $023B
+	sta $0243
 	clc
 	adc #8
-	sta $0214
-	sta $021C
-	sta $0224
-	sta $022C
-	sta $0234
-	sta $023C
-	sta $0244
+	sta $0217
+	sta $021F
+	sta $0227
+	sta $022F
+	sta $0237
+	sta $023F
+	sta $0247
+	sta $024B
+	
 
 
 lda Flipflag
