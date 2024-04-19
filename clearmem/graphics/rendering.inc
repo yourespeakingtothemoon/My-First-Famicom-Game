@@ -44,7 +44,7 @@ LoopSprite:
 	lda SpriteData,x
 	sta $0200,x
 	inx
-	cpx #16
+	cpx #79
 	bne LoopSprite
 	rts
 .endproc
