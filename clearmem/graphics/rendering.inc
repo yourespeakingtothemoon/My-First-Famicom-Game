@@ -132,7 +132,7 @@ SpriteUpdate:
 	sta $0208
 	sta $020C
 ;;update train position for all 14 sprites
-	lda TrainPos+1
+	lda TrainPos
 ;;pattern for this is first sprite, 3rd sprite and then we do the 2nd and 4th sprite
 	sta $0210
 	sta $0218

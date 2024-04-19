@@ -174,6 +174,9 @@ sta TrainSprite14
 	inx
 	lda SpriteData,x
 	sta XPos+1
+;;get train x position
+	lda $40
+	sta TrainPos
 Main:
 	PPU_SETADDR $3F00 
 jsr LoadPalette	
