@@ -134,24 +134,39 @@ SpriteUpdate:
 ;;update train position for all 14 sprites
 	lda TrainPos
 ;;pattern for this is first sprite, 3rd sprite and then we do the 2nd and 4th sprite
+;;increment the train position by 1 for each sprite
 	sta $0213
 	sta $021B
-	sta $0223
-	sta $022B
-	sta $0233
-	sta $023B
-	sta $0243
-	sta $024B
-	sta $0253
 	clc
 	adc #8
 	sta $0217
 	sta $021F
+	clc
+	adc #8
+	sta $0223
+	sta $022B
+	clc
+	adc #8
+	sta $0233
+	sta $023B
+	clc
+	adc #8
 	sta $0227
 	sta $022F
-	sta $0237
+	clc
+	adc #8
+	sta $0243
+	sta $024B
+	clc
+	adc #8
 	sta $023F
 	sta $0247
+	clc
+	adc #8
+	sta $0253
+	sta $0237
+	clc
+	adc #8
 	sta $024F
 	sta $0257
 
