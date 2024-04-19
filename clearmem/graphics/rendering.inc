@@ -53,44 +53,60 @@ LoopSprite:
 
 .macro playerUpdate
 UpdateSpritePosit:
-    lda XVel
-    bpl :+
-        dec XPos+1
-        :
-    clc
-    adc XPos
-    sta XPos
-    lda #0
-    adc XPos+1
-    sta XPos+1
+	lda XVel
+	bpl :+
+		dec XPos+1
+		:
+	clc
+	adc XPos
+	sta XPos
+	lda #0
+	adc XPos+1
+	sta XPos+1
 
-    lda JumpFlag
-    cmp #0
-    beq NoJump
-        lda YVel
-        bpl :+
-            dec YPos+1
-            :
-        clc
-        adc YPos
-        sta YPos
-        lda #0
-        adc YPos+1
-        sta YPos+1
-NoJump:	
 
-    lda #GRAVITY
-    clc
-    adc YVel
-    sta YVel
 
-    lda YVel
-    clc
-    adc YPos
-    sta YPos
-    lda #0
-    adc YPos+1
-    sta YPos+1
+;lda JumpFlag
+;cmp #0
+;beq NoJump
+    ;	lda YVel
+	;bpl :+
+	;	dec YPos+1
+	;	:
+	;clc
+	;adc YPos
+	;sta YPos
+	;lda #0
+	;adc YPos+1
+	;sta YPos+1
+;NoJump:	
+	
+
+	lda #GRAVITY
+
+	clc
+	sbc YPos
+	
+	sta YPos
+	lda #0
+	adc YPos+1
+	sta YPos+1
+	
+
+
+	lda YVel
+	clc
+	adc YPos+1
+	sta YPos+1
+
+	lda YVel
+	sbc #AIRDECELL
+	cmp #0
+	bcs :+
+		lda #0
+		:
+	sta YVel
+	
 
 	
 SpriteUpdate:
