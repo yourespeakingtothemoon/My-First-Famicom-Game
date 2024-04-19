@@ -64,6 +64,13 @@ UpdateSpritePosit:
 	adc XPos+1
 	sta XPos+1
 
+;;increment train position so its constantly moving right
+	lda TrainPos
+	clc
+	adc #1
+	sta TrainPos
+
+
 
 
 ;lda JumpFlag
@@ -107,7 +114,6 @@ UpdateSpritePosit:
 		:
 	sta YVel
 	
-
 	
 SpriteUpdate:
 	lda XPos+1
@@ -125,6 +131,35 @@ SpriteUpdate:
 	adc #8
 	sta $0208
 	sta $020C
+;;update train position for all 14 sprites
+	lda TrainPos+1
+;;pattern for this is first sprite, 3rd sprite and then we do the 2nd and 4th sprite
+	sta $0210
+	sta $0218
+	sta $0220
+	sta $0228
+	sta $0230
+	sta $0238
+	sta $0240
+	clc
+	adc #8
+	sta $0214
+	sta $021C
+	sta $0224
+	sta $022C
+	sta $0234
+	sta $023C
+	sta $0244
+
+	lda TrainPos+1
+	sta 
+
+
+
+	
+	
+
+	
 
 lda Flipflag
 	cmp #0 ; 0 means its not flipped
@@ -241,4 +276,74 @@ walk:
 	adc TileOffset
 	sta $20D
  endAnim:
+
+
+ animateTrain:
+	lda #0
+	sta TileOffset
+	lda Frame+1
+	and #%00000001
+	beq :+
+		lda #1
+		sta TileOffset
+	:
+	lda TrainSprite1
+	clc
+	adc TileOffset
+	sta $221
+	lda TrainSprite2
+	clc
+	adc TileOffset
+	sta $225
+	lda TrainSprite3
+	clc
+	adc TileOffset
+	sta $229
+	lda TrainSprite4
+	clc
+	adc TileOffset
+	sta $22D
+	lda TrainSprite5
+	clc
+	adc TileOffset
+	sta $231
+	lda TrainSprite6
+	clc
+	adc TileOffset
+	sta $235
+	lda TrainSprite7
+	clc
+	adc TileOffset
+	sta $239
+	lda TrainSprite8
+	clc
+	adc TileOffset
+	sta $23D
+	lda TrainSprite9
+	clc
+	adc TileOffset
+	sta $241
+	lda TrainSprite10
+	clc
+	adc TileOffset
+	sta $245
+	lda TrainSprite11
+	clc
+	adc TileOffset
+	sta $249
+	lda TrainSprite12
+	clc
+	adc TileOffset
+	sta $24D
+	lda TrainSprite13
+	clc
+	adc TileOffset
+	sta $251
+	lda TrainSprite14
+	clc
+	adc TileOffset
+	sta $255
+
+	
+
 .endmacro

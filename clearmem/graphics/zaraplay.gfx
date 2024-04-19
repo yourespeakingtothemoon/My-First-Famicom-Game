@@ -84,40 +84,42 @@ BackgroundData:
 
 .macro CurelomStill
 SpriteData:
-;		  y | tile# |   attribute |  x
-.byte  	$68,	$03,	%00000000,	$01
-.byte	$68,	$01,	%00000000,	$02
-.byte	$70,	$05,	%00000000,	$01
-.byte	$70,	$07,	%00000000,	$02
-
-
-.endmacro
-
-.macro charTrain
-CurelomSpriteData:
-;		  y | tile# |   attribute |  x
+;		  y | tile# |   attribute |  x 
 .byte  	$BF,	$03,	%00000000,	$42
 .byte	$BF,	$01,	%00000000,	$4A
 .byte	$C7,	$05,	%00000000,	$42
 .byte	$C7,	$07,	%00000000,	$4A
-SnekSpriteData:
+
+
 ;		  y | tile# |   attribute |  x
-.byte  	$BF,	$03,	%00000000,	$42
-.byte	$BF,	$01,	%00000000,	$4A
-.byte	$C7,	$05,	%00000000,	$42
-.byte	$C7,	$07,	%00000000,	$4A
-ParachuteSpriteData:
+.byte  	$68,	$30,	%00000000,	$00
+.byte	$68,	$31,	%00000000,	$08
+.byte	$70,	$32,	%00000000,	$00
+.byte	$70,	$30,	%00000000,	$08
+
+
 ;		  y | tile# |   attribute |  x
-.byte  	$BF,	$03,	%00000000,	$42
-.byte	$BF,	$01,	%00000000,	$4A
-.byte	$C7,	$05,	%00000000,	$42
-.byte	$C7,	$07,	%00000000,	$4A
-CollectSpriteData:
+.byte  	$68,	$1E,	%00000000,	$10
+.byte	$68,	$1C,	%00000000,	$18
+.byte	$70,	$21,	%00000000,	$10
+.byte	$70,	$22,	%00000000,	$18
+
 ;		  y | tile# |   attribute |  x
-.byte  	$0A,	$03,	%00000000,	$01
-.byte	$0A,	$01,	%00000000,	$02
-.byte	$0B,	$05,	%00000000,	$01
-.byte	$0B,	$07,	%00000000,	$02
+.byte  	$68,	$16,	%00000000,	$20
+.byte	$68,	$14,	%00000000,	$28
+.byte	$68,	$01,	%00000000,	$30
+.byte	$70,	$18,	%00000000,	$20
+.byte	$70,	$26,	%00000000,	$28
+.byte	$70,	$1A,	%00000000,	$30
+
+
+;		  y | tile# |   attribute |  x
+.byte  	$68,	$03,	%00000000,	$38
+.byte	$68,	$01,	%00000000,	$40
+.byte	$70,	$05,	%00000000,	$38
+.byte	$70,	$07,	%00000000,	$40
+
+
 .endmacro
 .macro collideMap
 

@@ -17,6 +17,27 @@ XVel: .res 1
 YVel: .res 1
 JumpVel: .res 1
 
+
+;train position
+TrainPos: .res 1
+;trainsprites pointers (18)
+TrainSprite1: .res 1
+TrainSprite2: .res 1
+TrainSprite3: .res 1
+TrainSprite4: .res 1
+TrainSprite5: .res 1
+TrainSprite6: .res 1
+TrainSprite7: .res 1
+TrainSprite8: .res 1
+TrainSprite9: .res 1
+TrainSprite10: .res 1
+TrainSprite11: .res 1
+TrainSprite12: .res 1
+TrainSprite13: .res 1
+TrainSprite14: .res 1
+
+
+
 ;sprite pointers
 sprite1: .res 1
 sprite2: .res 1
