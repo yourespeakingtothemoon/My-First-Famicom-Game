@@ -107,6 +107,64 @@ RESET:
 	sta spritewalk3
 	lda #$10
 	sta spritewalk4
+;train sprite data
+	;		  y | tile# |   attribute |  x
+;.byte  	$68,	$30,	%00000000,	$00
+;.byte	$68,	$31,	%00000000,	$08
+;.byte	$70,	$32,	%00000000,	$00
+;.byte	$70,	$30,	%00000000,	$08
+
+
+;		  y | tile# |   attribute |  x
+;.byte  	$68,	$1E,	%00000000,	$10
+;.byte	$68,	$1C,	%00000000,	$18
+;.byte	$70,	$21,	%00000000,	$10
+;.byte	$70,	$22,	%00000000,	$18
+
+;		  y | tile# |   attribute |  x
+;.byte  	$68,	$16,	%00000000,	$20
+;.byte	$68,	$14,	%00000000,	$28
+;.byte	$68,	$01,	%00000000,	$30
+;.byte	$70,	$18,	%00000000,	$20
+;.byte	$70,	$26,	%00000000,	$28
+;.byte	$70,	$1A,	%00000000,	$30
+
+
+;		  y | tile# |   attribute |  x
+;.byte  	$68,	$03,	%00000000,	$38
+;.byte	$68,	$01,	%00000000,	$40
+;.byte	$70,	$05,	%00000000,	$38
+;.byte	$70,	$07,	%00000000,	$40
+
+lda #$1E
+sta TrainSprite1
+lda #$1C
+sta TrainSprite2
+lda #$21
+sta TrainSprite3
+lda #$22
+sta TrainSprite4
+lda #$16
+sta TrainSprite5
+lda #$14
+sta TrainSprite6
+lda #$01
+sta TrainSprite7
+lda #$18
+sta TrainSprite8
+lda #$26
+sta TrainSprite9
+lda #$1A
+sta TrainSprite10
+lda #$03
+sta TrainSprite11
+lda #$01
+sta TrainSprite12
+lda #$05
+sta TrainSprite13
+lda #$07
+sta TrainSprite14
+
 
 	ldx #0
 	lda SpriteData,x
